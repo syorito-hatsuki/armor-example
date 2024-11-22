@@ -1,5 +1,6 @@
-val fabricKotlinVersion: String by project
-val javaVersion = JavaVersion.VERSION_17
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+val javaVersion = JavaVersion.VERSION_21
 val loaderVersion: String by project
 val minecraftVersion: String by project
 val modVersion: String by project
@@ -34,15 +35,6 @@ dependencies {
 
     val fabricVersion: String by project
     modImplementation("net.fabricmc.fabric-api", "fabric-api", fabricVersion)
-
-
-    modImplementation("net.fabricmc", "fabric-language-kotlin", fabricKotlinVersion)
-
-    val modMenuBadgesLibVersion: String by project
-    include(modImplementation("maven.modrinth", "modmenu-badges-lib", modMenuBadgesLibVersion))
-
-    val duckyUpdaterLibVersion: String by project
-    include(modImplementation("maven.modrinth", "ducky-updater-lib", duckyUpdaterLibVersion))
 }
 
 tasks {
@@ -54,8 +46,8 @@ tasks {
     }
 
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = javaVersion.toString()
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
         }
     }
 
@@ -65,7 +57,6 @@ tasks {
 
     processResources {
         val modName: String by project
-        val modDescription: String by project
 
         filesMatching("fabric.mod.json") {
             expand(
@@ -73,16 +64,10 @@ tasks {
                     "modId" to modId,
                     "modName" to modName,
                     "modVersion" to modVersion,
-                    "modDescription" to modDescription,
-                    "loaderVersion" to loaderVersion,
                     "minecraftVersion" to minecraftVersion,
-                    "fabricKotlinVersion" to fabricKotlinVersion,
                     "javaVersion" to javaVersion.toString()
                 )
             )
-        }
-        filesMatching("template.mixins.json") {
-            expand(mutableMapOf("modId" to modId))
         }
     }
 

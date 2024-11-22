@@ -3,7 +3,6 @@
   "id": "${modId}",
   "version": "${modVersion}",
   "name": "${modName}",
-  "description": "${modDescription}",
   "authors": [
     "Syorito Hatsuki"
   ],
@@ -17,10 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      {
-        "adapter": "kotlin",
-        "value": "dev.syoritohatsuki.${modId}.TemplateMod"
-      }
+      "dev.syoritohatsuki.armorexample.ArmorExampleMod"
     ]
   },
   "custom": {
@@ -44,8 +40,7 @@
   ],
   "depends": {
     "fabric": "*",
-    "fabricloader": ">=${loaderVersion}",
-    "fabric-language-kotlin": ">=${fabricKotlinVersion}",
+    "fabricloader": "*",
     "minecraft": ">=${minecraftVersion}",
     "java": ">=${javaVersion}"
   },
