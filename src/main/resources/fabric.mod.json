@@ -15,6 +15,9 @@
   "icon": "assets/${modId}/icon.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "dev.syoritohatsuki.armorexample.client.ArmorExampleModClient"
+    ],
     "main": [
       "dev.syoritohatsuki.armorexample.ArmorExampleMod"
     ]
