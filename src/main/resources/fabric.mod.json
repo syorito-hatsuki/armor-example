@@ -12,30 +12,13 @@
     "sources": "https://github.com/syorito-hatsuki/${modId}"
   },
   "license": "MIT Licence",
-  "icon": "assets/${modId}/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "dev.syoritohatsuki.armorexample.client.ArmorExampleModClient"
+      "dev.syoritohatsuki.tridentexample.client.TridentExampleModClient"
     ],
     "main": [
-      "dev.syoritohatsuki.armorexample.ArmorExampleMod"
-    ]
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/pbwnMwnUD6"
-      },
-      "badges": [],
-      "update_checker": true
-    },
-    "mcb": [
-      {
-        "name": "Ducky House",
-        "fillColor": -13730510,
-        "outlineColor": -11751600
-      }
+      "dev.syoritohatsuki.tridentexample.TridentExampleMod"
     ]
   },
   "mixins": [
@@ -46,8 +29,5 @@
     "fabricloader": "*",
     "minecraft": ">=${minecraftVersion}",
     "java": ">=${javaVersion}"
-  },
-  "recommends": {
-    "modmenu-badges-lib": "*"
   }
 }

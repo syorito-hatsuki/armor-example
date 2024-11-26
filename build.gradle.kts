@@ -1,7 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 val javaVersion = JavaVersion.VERSION_21
-val loaderVersion: String by project
 val minecraftVersion: String by project
 val modVersion: String by project
 val mavenGroup: String by project
@@ -9,8 +6,6 @@ val modId: String by project
 
 plugins {
     id("fabric-loom")
-    kotlin("jvm")
-    kotlin("plugin.serialization")
 }
 
 base {
@@ -18,11 +13,7 @@ base {
 }
 
 repositories {
-    maven("https://api.modrinth.com/maven") {
-        content {
-            includeGroup("maven.modrinth")
-        }
-    }
+
 }
 
 dependencies {
@@ -31,6 +22,7 @@ dependencies {
     val yarnMappings: String by project
     mappings("net.fabricmc", "yarn", yarnMappings, null, "v2")
 
+    val loaderVersion: String by project
     modImplementation("net.fabricmc", "fabric-loader", loaderVersion)
 
     val fabricVersion: String by project
@@ -43,12 +35,6 @@ tasks {
         sourceCompatibility = javaVersion.toString()
         targetCompatibility = javaVersion.toString()
         options.release.set(javaVersion.toString().toInt())
-    }
-
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
-        }
     }
 
     jar {
