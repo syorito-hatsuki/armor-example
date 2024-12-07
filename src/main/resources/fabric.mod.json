@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.syoritohatsuki.armorexample.ArmorExampleMod"
+      "dev.syoritohatsuki.hand2dworld3d.Hand2DWorld3DMod"
     ]
   },
   "mixins": [
