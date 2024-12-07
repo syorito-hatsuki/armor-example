@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 val javaVersion = JavaVersion.VERSION_21
 val loaderVersion: String by project
 val minecraftVersion: String by project
@@ -10,7 +8,6 @@ val modId: String by project
 plugins {
     id("fabric-loom")
     kotlin("jvm")
-    kotlin("plugin.serialization")
 }
 
 base {
@@ -43,12 +40,6 @@ tasks {
         sourceCompatibility = javaVersion.toString()
         targetCompatibility = javaVersion.toString()
         options.release.set(javaVersion.toString().toInt())
-    }
-
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
-        }
     }
 
     jar {

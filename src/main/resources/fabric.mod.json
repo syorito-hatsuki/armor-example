@@ -19,22 +19,6 @@
       "dev.syoritohatsuki.armorexample.ArmorExampleMod"
     ]
   },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/pbwnMwnUD6"
-      },
-      "badges": [],
-      "update_checker": true
-    },
-    "mcb": [
-      {
-        "name": "Ducky House",
-        "fillColor": -13730510,
-        "outlineColor": -11751600
-      }
-    ]
-  },
   "mixins": [
     "${modId}.mixins.json"
   ],
@@ -43,8 +27,5 @@
     "fabricloader": "*",
     "minecraft": ">=${minecraftVersion}",
     "java": ">=${javaVersion}"
-  },
-  "recommends": {
-    "modmenu-badges-lib": "*"
   }
 }
