@@ -33,14 +33,20 @@ public abstract class ItemRendererMixin {
         if (stack.getItem() == ItemsRegistry.RADIATION_STAFF && (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.FIXED)) {
             return getModels().getModelManager().getModel(ModItemRenderer.RADIATION_STAFF_2D);
         }
+
         return bakedModel;
     }
 
-    @ModifyVariable(method = "getModel", at = @At(value = "STORE"), ordinal = 1)
+    @ModifyVariable(
+            method = "getModel",
+            at = @At(value = "STORE"),
+            ordinal = 1
+    )
     public BakedModel getHeldItemModelMixin(BakedModel bakedModel, @Local(argsOnly = true) ItemStack stack) {
         if (stack.getItem() == ItemsRegistry.RADIATION_STAFF) {
             return this.models.getModelManager().getModel(ModItemRenderer.RADIATION_STAFF_3D);
         }
+
         return bakedModel;
     }
 }
