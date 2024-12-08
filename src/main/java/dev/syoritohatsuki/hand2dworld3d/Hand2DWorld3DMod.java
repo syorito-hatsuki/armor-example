@@ -8,11 +8,11 @@ import org.slf4j.Logger;
 public class Hand2DWorld3DMod implements ModInitializer {
 
     public static final String MOD_ID = "hand-2d-world-3d";
-    Logger logger = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     @Override
     public void onInitialize() {
-        logger.info("{} initialized with mod-id {}", getClass().getSimpleName(),  MOD_ID);
+        LOGGER.info("{} initialized with mod-id {}", getClass().getSimpleName(), MOD_ID);
 
         ItemsRegistry.init();
     }

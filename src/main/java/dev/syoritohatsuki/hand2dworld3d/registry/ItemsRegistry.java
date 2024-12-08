@@ -11,14 +11,14 @@ import net.minecraft.util.Identifier;
 
 public final class ItemsRegistry {
 
-    public static final Item RADIATION_STUFF = register(
+    public static final Item RADIATION_STAFF = register(
             new Item(new Item.Settings()),
-            "radiation_stuff"
+            "radiation_staff"
     );
 
     public static void init() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((itemGroup) ->
-                itemGroup.addAfter(Items.TRIDENT, RADIATION_STUFF)
+                itemGroup.addAfter(Items.TRIDENT, RADIATION_STAFF)
         );
     }
 
